@@ -11,6 +11,16 @@ namespace TwoD_Matrices
                 Console.WriteLine();
             }
         }
+        public static void PrintMatrix(List<List<int>> mat){
+            for (int i = 0; i < mat.Count; i++)
+            {
+                for (int j = 0; j < mat[i].Count; j++)
+                {
+                    Console.Write(mat[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 
     public class Matrix{
@@ -246,7 +256,8 @@ namespace TwoD_Matrices
             Console.WriteLine("Enter N");
             int N = Convert.ToInt32(Console.ReadLine());
 
-            int[][] mat = s.SpiralOrderMatrix(N);
+            // int[][] mat = s.SpiralOrderMatrix(N);
+            List<List<int>> mat = s.SpiralOrderMatrixList(N);
             Common.PrintMatrix(mat);
         }
     }

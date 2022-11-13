@@ -256,6 +256,61 @@ namespace TwoD_Matrices{
 				mat[i][j] = counter;
 			return mat;
 		}
+	
+		public List<List<int>> SpiralOrderMatrixList(int N){
+			List<List<int>> mat = new List<List<int>>(N);
+			// initialise matrix
+			for (int x = 0; x < N; x++)
+			{
+				List<int> temp = new List<int>();
+				for (int y = 0; y < N; y++)
+				{
+					temp.Add(0);
+				}
+				mat.Add(temp);
+			}
+
+			int i = 0, j = 0;
+			int noOfTimesLoopRun = 0;
+			int counter = 1; //1 to N2
+			while(N > 1){
+				while(noOfTimesLoopRun < N-1){
+					mat[i][j] = counter++;
+					noOfTimesLoopRun++;
+					j++;
+				}
+				noOfTimesLoopRun = 0;
+				//at this point i = 0, j = N-1
+				while(noOfTimesLoopRun < N-1){
+					mat[i][j] = counter++;
+					noOfTimesLoopRun++;
+					i++;
+				}
+				noOfTimesLoopRun = 0;
+				// at this point i = N-1, j = N-1
+				while(noOfTimesLoopRun < N-1){
+					mat[i][j] = counter++;
+					noOfTimesLoopRun++;
+					j--;
+				}
+				noOfTimesLoopRun = 0;
+				// at this point i = N-1, j = 0
+				while(noOfTimesLoopRun < N-1){
+					mat[i][j] = counter++;
+					noOfTimesLoopRun++;
+					i--;
+				}
+				noOfTimesLoopRun = 0;
+				// at this point i = 0, j = 0
+				N = N-2;
+				i++;
+				j++;
+			}
+			if(N == 1)
+				mat[i][j] = counter;
+			return mat;
+		}
+	
 	}
 
 	
