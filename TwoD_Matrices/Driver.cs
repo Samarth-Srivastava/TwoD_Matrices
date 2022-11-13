@@ -34,7 +34,7 @@ namespace TwoD_Matrices
             Console.WriteLine("Print diagonals of Matrix: Press 7 --");
             Console.WriteLine("Transpose Matrix: Press 8 --");
             Console.WriteLine("Rotate Clockwise: Press 9 --");
-            // Console.WriteLine("Special Index of an array: Press 10 --");
+            Console.WriteLine("Spiral Order Matrix: Press 10 --");
             // Console.WriteLine("Count A G pairs in an array: Press 11 --");
             // Console.WriteLine("Closest Min Max in an array: Press 12 --");
             // Console.WriteLine("Leaders in an array: Press 13 --");
@@ -74,9 +74,9 @@ namespace TwoD_Matrices
                     case 9: 
                         CallRotateClockwise();
                         break;
-                    // case 10: 
-                    //     CallSpecialIndexes();
-                    //     break;
+                    case 10: 
+                        CallSpiralmatrix();
+                        break;
                     // case 11: 
                     //     CallCountAGPairs();
                     //     break;
@@ -240,6 +240,14 @@ namespace TwoD_Matrices
             Console.WriteLine("Rotated matrix is :");
             Common.PrintMatrix(m.mat);
 
+        }
+
+        public void CallSpiralmatrix(){
+            Console.WriteLine("Enter N");
+            int N = Convert.ToInt32(Console.ReadLine());
+
+            int[][] mat = s.SpiralOrderMatrix(N);
+            Common.PrintMatrix(mat);
         }
     }
 }
